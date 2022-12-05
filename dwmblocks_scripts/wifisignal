@@ -3,7 +3,7 @@ SIGNAL=$(iw dev wlp0s20f3 link | grep signal | awk '{print $2$3}')
 #SSID=$(iw dev wlp0s20f3 link | grep SSID | awk '{$1=""; print}')
 if [ -z $SIGNAL ];
 then
-   echo ""
+   echo ""
 else
    echo ""
 fi
