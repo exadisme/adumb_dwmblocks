@@ -2,7 +2,7 @@
 DEVNAME=$(bluetoothctl info | grep Name | awk '{$1=""; print}')
 if [ -z $DEVNAME ];
 then
-   echo "  𛰇"
+   echo "  𛰇"
 else
    echo "  𛰇"
 fi
