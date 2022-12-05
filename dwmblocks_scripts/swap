@@ -1,0 +1,5 @@
+#!/bin/bash
+SWAP=$(free -h | awk '/Swap:/ { printf("%5s/%s \n", $3, $2) }')
+#SWAP=$(free | grep Swap | awk '{print $3/$2 * 100.0}')         
+#SWAP=$(printf %.f $(echo "$SWAP/1.18" | bc -l))      
+echo $SWAP "𛰇"

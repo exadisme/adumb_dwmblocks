@@ -1,0 +1,5 @@
+#!/bin/bash
+BRIGHTLEVEL=$(brightnessctl | grep Current | awk '{print $4}')
+BRIGHTLEVEL=${BRIGHTLEVEL%??}
+BRIGHTLEVEL=${BRIGHTLEVEL:1}
+echo " $BRIGHTLEVEL"

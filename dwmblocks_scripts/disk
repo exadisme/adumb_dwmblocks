@@ -1,0 +1,3 @@
+#!/bin/bash
+DISK=$(df -h | grep "/home" | awk {'print $5'})
+echo ${DISK}

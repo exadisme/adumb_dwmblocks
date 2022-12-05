@@ -1,0 +1,5 @@
+#!/bin/bash
+MEM=$(free -h | awk '/Mem:/ { printf("%5s/%s \n", $3, $2) }')
+#MEM=$(free -h | grep Mem | awk '{print $3}')
+#MEM=$(printf %.f $(echo "$MEM/1.18" | bc -l))
+echo $MEM

@@ -1,0 +1,60 @@
+#!/bin/bash
+# Depends:
+# CPU frequency depends on cpupower
+# CP🔌U temperature depends on sensors
+# Music player depends on cmus.
+
+BATTERY=$(cat /sys/class/power_supply/BAT0/capacity)
+BATTERYSTAT=$(cat /sys/class/power_supply/BAT0/status)
+TIMEREM=$(acpi -b | awk '{ print $5 }')
+
+if [ $BATTERY -gt 80 ];
+then 
+   BATCAPI=""
+
+elif [ $BATTERY -le 80 ] && [ $BATTERY -gt 60 ];
+then
+   BATCAPI=""
+
+elif [ $BATTERY -le 60 ] && [ $BATTERY -gt 40 ];
+then
+   BATCAPI=""
+
+elif [ $BATTERY -le 40 ] && [ $BATTERY -gt 20 ];
+then
+   BATCAPI=""
+
+elif [ $BATTERY -le 20 ];
+then
+   BATCAPI=""
+fi
+
+
+# Battery status icon
+if [ $BATTERYSTAT = "Charging" ];
+then
+   BATCAPI=""
+fi
+
+if [ $TIMEREM = "until" ];
+then
+   echo "$BATCAPI $BATTERY"
+else
+   echo "$BATCAPI $BATTERY $TIMEREM"
+fi
+
+if [ $BATTERYSTAT = Discharging ];
+then
+   if [ $BATTERY = 15 ];
+   then
+      notify-send "Low Battery" "Battery is low, charge now."
+   elif [ $BATTERY -le 10 ];
+   then
+      notify-send "Battery Critical" "To avoid sudden loss of power, charge now."
+      aplay /home/adam/.sounds/lowbat.wav
+   elif [ $BATTERY -le 8 ];
+   then
+      notify-send "Battery Critical" "Going to sleep to avoid power loss."
+      sleep 5s && systemctl suspend
+   fi
+fi

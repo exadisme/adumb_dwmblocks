@@ -1,0 +1,3 @@
+#!/bin/bash
+BARTIME=$(date '+%b %d %I:%M%p')
+echo "𛰇  $BARTIME  "
