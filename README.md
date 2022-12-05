@@ -10,7 +10,12 @@ iw for wireless connection icon
 pulseaudio for volume
 bluez for bluetooth
 
+May depend on:
 nerd-fonts for various icons
+fontawesome fonts for various icons
+noto fonts
+noto fonts-cjk
+
 
 Modular status bar for dwm written in c.
 # usage
