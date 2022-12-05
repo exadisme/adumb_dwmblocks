@@ -1,4 +1,17 @@
 # dwmblocks
+
+This is my personal edit of dwmblocks with my own scripts.
+Copy the scripts to somewhere within your path variable or edit your path to include scripts dir.
+
+My scripts depends:
+lmsensors for cpu temp
+brightnessctl
+iw for wireless connection icon
+pulseaudio for volume
+bluez for bluetooth
+
+nerd-fonts for various icons
+
 Modular status bar for dwm written in c.
 # usage
 To use dwmblocks first run 'make' and then install it with 'sudo make install'.
